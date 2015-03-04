@@ -12,26 +12,28 @@ import android.widget.ImageView;
 
 public class CircleView extends ActionBarActivity {
     private ImageView image1;
-    ImageView image2;
-    ImageView image3;
-    ImageView image4;
-    ImageView image5;
+    private ImageView image2;
+    private ImageView image3;
+    private ImageView image4;
+    private ImageView image5;
 	private float xCurrentPos, yCurrentPos;
+    private TranslateAnimation animation2,animation3,animation4,animation5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circle_view);
+
         image1 = (ImageView) findViewById(R.id.imageView1);
         image2 = (ImageView) findViewById(R.id.imageView2);
         image3 = (ImageView) findViewById(R.id.imageView3);
         image4 = (ImageView) findViewById(R.id.imageView4);
         image5 = (ImageView) findViewById(R.id.imageView5);
+
+        this.overridePendingTransition(R.anim.animation_left, R.anim.animation_right);
+
 		xCurrentPos = image1.getLeft();
         yCurrentPos = image1.getTop();
-        final TranslateAnimation animation2,animation3,animation4,animation5;
 
-        xCurrentPos = image1.getLeft();
-        yCurrentPos = image1.getTop();
         animation2 = new TranslateAnimation(xCurrentPos,-50, yCurrentPos, - 50);
         animation2.setDuration(1000);
         animation2.setFillAfter( true );
@@ -116,8 +118,11 @@ public class CircleView extends ActionBarActivity {
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.animation_right, R.anim.animation_left);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
