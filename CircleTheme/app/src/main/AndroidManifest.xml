@@ -20,6 +20,14 @@
             android:name=".CircleView"
             android:label="@string/title_activity_circle_view" >
         </activity>
+        <activity
+            android:name=".ImageViewActivity"
+            android:label="@string/title_activity_image_vew" >
+        </activity>
+        <activity
+            android:name=".MoveImageActivity"
+            android:label="@string/title_activity_move_image" >
+        </activity>
     </application>
 
 </manifest>

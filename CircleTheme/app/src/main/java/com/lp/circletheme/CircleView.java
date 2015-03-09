@@ -1,16 +1,22 @@
 package com.lp.circletheme;
 
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.CharacterPickerDialog;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 
-public class CircleView extends ActionBarActivity {
+public class CircleView extends Activity {
+
     private ImageView image1;
     private ImageView image2;
     private ImageView image3;
@@ -18,6 +24,7 @@ public class CircleView extends ActionBarActivity {
     private ImageView image5;
 	private float xCurrentPos, yCurrentPos;
     private TranslateAnimation animation2,animation3,animation4,animation5;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +37,13 @@ public class CircleView extends ActionBarActivity {
         image5 = (ImageView) findViewById(R.id.imageView5);
 
         this.overridePendingTransition(R.anim.animation_left, R.anim.animation_right);
+        image1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imageView = new Intent(getApplicationContext(),ImageViewActivity.class);
+                startActivity(imageView);
+            }
+        });
 
 		xCurrentPos = image1.getLeft();
         yCurrentPos = image1.getTop();
@@ -113,7 +127,13 @@ public class CircleView extends ActionBarActivity {
             }
         });
         image5.startAnimation(animation5);
-
+        image5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent imageView = new Intent(getApplicationContext(),MoveImageActivity.class);
+                startActivity(imageView);
+            }
+        });
 
 
     }
