@@ -12,8 +12,8 @@ import android.widget.ListView;
 
 
 public class MainActivity extends Activity {
-    ImageButton button ;
-    ListView list;
+    private ImageButton button ;
+    private ListView list;
 
 
     protected void onCreate(Bundle savedInstanceState) {
